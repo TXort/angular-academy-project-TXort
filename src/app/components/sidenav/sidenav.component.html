@@ -1,11 +1,7 @@
 <ul>
-    <li>
-        <a herf="#">All shows</a>
+
+    <li *ngFor="let link of links">
+        <a [routerLink]="link.url" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >{{ link.title }}</a>
     </li>
-    <li>
-        <a herf="#">Top rated</a>
-    </li>
-    <li>
-        <a herf="#">My profile</a>
-    </li>
+
 </ul>
