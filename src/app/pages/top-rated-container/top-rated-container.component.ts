@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Show } from 'src/app/services/show.model';
 import { ShowService } from 'src/app/services/show.service';
 
@@ -7,15 +8,10 @@ import { ShowService } from 'src/app/services/show.service';
   templateUrl: './top-rated-container.component.html',
   styleUrls: ['./top-rated-container.component.css']
 })
-export class TopRatedContainerComponent implements OnInit {
+export class TopRatedContainerComponent  {
 
-    public shows: Array<Show> = [];
+    public shows$: Observable<Array<Show> > = this.showService.getTopRated();
 
     constructor(private showService: ShowService) {}
-  
-    ngOnInit() {
-      this.shows = this.showService.getTopRated();
-  
-    }
 
 }
