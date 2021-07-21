@@ -1,35 +1,5 @@
-
-<ng-container *ngIf="(topRated$ | async) as shows">
-    <section>
-    <app-show-list [shows]="shows"></app-show-list>
-    </section>
+<ng-container *ngIf="templateData$ | async as templateData">
+	<section>
+		<app-show-list [shows]="templateData.allShows"></app-show-list>
+	</section>
 </ng-container>
-
-<ng-container *ngIf="(shows$ | async) as shows">
-    <section>
-    <app-show-list [shows]="shows"></app-show-list>
-    </section>
-</ng-container>
-
-<ng-container *ngIf="(templateData$ | async) as templateData">
-    <pre>
-        
-    </pre>
-</ng-container>
-
-
-
-<!--
-<ng-container *ngIf="(templateData$ | async) as templateData">
-
-    <section>
-        <app-show-list> [shows]="templateData.allShows"</app-show-list>
-    </section>
-
-    <section>
-        <app-show-list> [shows]="templateData.topRated"</app-show-list>
-    </section>
-
-    
-</ng-container>
---->
