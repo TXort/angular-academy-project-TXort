@@ -1,0 +1,5 @@
+<ng-container *ngIf="templateData$ | async as templateData">
+	<section>
+		<app-show-list [shows]="templateData.allShows"></app-show-list>
+	</section>
+</ng-container>

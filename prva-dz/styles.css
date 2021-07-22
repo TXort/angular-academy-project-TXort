@@ -1,0 +1,58 @@
+ol li {
+  list-style-type: none;
+  text-align: center;
+}
+
+.lbl {
+  font-size: larger;
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  left: 10%;
+}
+
+div {
+  text-align: center;
+  color: center;
+}
+
+ol {
+  text-align: center;
+}
+
+li {
+  list-style-type: none;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+}
+
+h2 {
+  color: white;
+}
+
+li {
+  color: white;
+}
+
+body {
+  background-color: rgb(30, 0, 76);
+}
+
+button {
+  background-color: white;
+  border: none;
+  color: rgb(92, 0, 187);
+  padding: 6px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 5px;
+  font-weight: bold;
+}
