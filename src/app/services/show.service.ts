@@ -51,9 +51,15 @@ export class ShowService {
 
 	public getShows(): Observable<Array<Show>> {
 		//	return this.shows.pipe(delay(1000 + Math.random() * 1000));
-		return this.http.get<{ shows: Array<IRawShow> }>('https://tv-shows.infinum.academy/shows').pipe(
+		/* return this.http.get<{ shows: Array<IRawShow> }>('https://tv-shows.infinum.academy/shows').pipe(
 			map(({ shows }: { shows: Array<IRawShow> }) => {
 				return shows.map((rawShowData) => new Show(rawShowData));
+			})
+		); */
+		return this.http.get<{ shows: Array<IRawShow> }>('https://tv-shows.infinum.academy/shows').pipe(
+			map((response) => {
+				console.log(response);
+				return [].map((rawShowData) => new Show(rawShowData));
 			})
 		);
 	}

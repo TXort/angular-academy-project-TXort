@@ -24,7 +24,10 @@ import { AddShowContainerComponent } from './pages/add-show-container/add-show-c
 import { ShowFormComponent } from './pages/add-show-container/components/show-form.component';
 import { FormLayoutComponent } from './components/form-layout/form-layout.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoginContainerComponent } from './pages/login-container/login-container.component';
+import { LoginFormComponent } from './pages/login-container/login-form/login-form.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
 	declarations: [
@@ -41,6 +44,8 @@ import { HttpClientModule } from '@angular/common/http';
 		AddShowContainerComponent,
 		ShowFormComponent,
 		FormLayoutComponent,
+		LoginContainerComponent,
+		LoginFormComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -56,7 +61,13 @@ import { HttpClientModule } from '@angular/common/http';
 		HttpClientModule,
 		MatProgressBarModule,
 	],
-	providers: [],
+	providers: [
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: AuthInterceptor,
+			multi: true,
+		},
+	],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}

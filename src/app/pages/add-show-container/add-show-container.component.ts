@@ -16,7 +16,7 @@ export class AddShowContainerComponent {
 	constructor(private showService: ShowService, private router: Router) {}
 
 	public onShowAdd(showFromData: ShowFormData): void {
-		this.isLoading$.next(false);
+		this.isLoading$.next(true);
 		this.showService
 			.onShowAdd(showFromData)
 			.pipe(
