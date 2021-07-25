@@ -1,0 +1,29 @@
+<mat-card>
+	<form [formGroup]="showFormGroup">
+		<mat-form-field appearance="fill">
+			<mat-label>Show title</mat-label>
+			<input matInput formControlName="title" />
+			<mat-error *ngIf="showFormGroup.get('title')?.errors?.required">Title is required</mat-error>
+			<mat-error *ngIf="showFormGroup.get('title')?.errors?.email">Duck</mat-error>
+		</mat-form-field>
+	</form>
+
+	<form [formGroup]="showFormGroup">
+		<mat-form-field appearance="fill">
+			<mat-label>Show description</mat-label>
+			<input matInput formControlName="description" />
+		</mat-form-field>
+	</form>
+
+	<form [formGroup]="showFormGroup">
+		<mat-form-field appearance="fill">
+			<mat-label>Show image url</mat-label>
+			<input matInput formControlName="imgUrl" />
+			<mat-icon matPrefix>image</mat-icon>
+		</mat-form-field>
+
+		<button mat-raised-button (click)="onAddShow()" [disabled]="showFormGroup.invalid">Add show</button>
+
+		<p><a [routerLink]="''">Go to all shows</a></p>
+	</form>
+</mat-card>

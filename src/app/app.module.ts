@@ -3,6 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,6 +20,11 @@ import { TopRatedContainerComponent } from './pages/top-rated-container/top-rate
 import { ShowDetailsContainerComponent } from './pages/show-details-container/show-details-container.component';
 import { ShowDetailsComponent } from './pages/show-details-container/components/show-details/show-details.component';
 import { ShowReviewsComponent } from './pages/show-details-container/components/show-reviews/show-reviews.component';
+import { AddShowContainerComponent } from './pages/add-show-container/add-show-container.component';
+import { ShowFormComponent } from './pages/add-show-container/components/show-form.component';
+import { FormLayoutComponent } from './components/form-layout/form-layout.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
 	declarations: [
@@ -28,9 +37,25 @@ import { ShowReviewsComponent } from './pages/show-details-container/components/
 		TopRatedContainerComponent,
 		ShowDetailsContainerComponent,
 		ShowDetailsComponent,
-  ShowReviewsComponent,
+		ShowReviewsComponent,
+		AddShowContainerComponent,
+		ShowFormComponent,
+		FormLayoutComponent,
 	],
-	imports: [BrowserModule, BrowserAnimationsModule, MatCardModule, MatSidenavModule, AppRoutingModule],
+	imports: [
+		BrowserModule,
+		BrowserAnimationsModule,
+		MatCardModule,
+		MatSidenavModule,
+		AppRoutingModule,
+		MatFormFieldModule,
+		ReactiveFormsModule,
+		MatInputModule,
+		MatIconModule,
+		MatButtonModule,
+		HttpClientModule,
+		MatProgressBarModule,
+	],
 	providers: [],
 	bootstrap: [AppComponent],
 })
