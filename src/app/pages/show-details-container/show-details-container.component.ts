@@ -6,6 +6,7 @@ import { Review } from 'src/app/services/review.model';
 import { Show } from 'src/app/services/show.model';
 import { ShowService } from 'src/app/services/show.service';
 import { ReviewService } from 'src/app/services/review.service';
+import { IRawReview } from 'src/app/interfaces/rawReview.interface';
 
 @Component({
 	selector: 'app-show-details-container',
@@ -33,4 +34,9 @@ export class ShowDetailsContainerComponent {
 			return of(null);
 		})
 	);
+
+	public onSubmit(reviewData: IRawReview): void {
+		console.log(reviewData);
+		this.reviewService.submitReview(reviewData);
+	}
 }

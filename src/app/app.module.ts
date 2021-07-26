@@ -31,6 +31,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RegistrationContainerComponent } from './pages/registration-container/registration-container.component';
 import { RegistrationFormComponent } from './pages/registration-container/registration-form/registration-form.component';
 import { AuthErrorInterceptor } from './interceptors/auth-error.interceptor';
+import { ReviewFormComponent } from './pages/show-details-container/components/review-form/review-form.component';
 
 @NgModule({
 	declarations: [
@@ -51,6 +52,7 @@ import { AuthErrorInterceptor } from './interceptors/auth-error.interceptor';
 		LoginFormComponent,
 		RegistrationContainerComponent,
 		RegistrationFormComponent,
+  ReviewFormComponent,
 	],
 	imports: [
 		BrowserModule,

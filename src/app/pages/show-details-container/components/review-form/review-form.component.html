@@ -1,0 +1,19 @@
+<mat-card>
+	<form [formGroup]="reviewFormGroup" (ngSubmit)="onSubmit()">
+		<h1>Post a review</h1>
+		<mat-form-field appearance="fill">
+			<mat-label>Comment</mat-label>
+			<input matInput type="comment" formControlName="comment" />
+			<mat-error *ngIf="reviewFormGroup.get('comment')?.getError('required')">Comment can't be empty</mat-error>
+		</mat-form-field>
+
+		<mat-form-field appearance="fill">
+			<mat-label>Rating</mat-label>
+			<input matInput type="number" formControlName="rating" />
+			<mat-error *ngIf="reviewFormGroup.get('rating')?.getError('required')">Rating can't be empty</mat-error>
+			<mat-icon matPrefix>star</mat-icon>
+		</mat-form-field>
+
+		<button mat-raised-button (click)="onSubmit()" [disabled]="reviewFormGroup.invalid">Log in</button>
+	</form>
+</mat-card>

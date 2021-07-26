@@ -1,4 +1,4 @@
-import { FormControl, FormGroup, ValidationErrors } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 
 export function confirmPassowordValidator(firstControlName: string, secondControlName: string) {
 	return (formGroup: FormGroup) => {
@@ -11,12 +11,3 @@ export function confirmPassowordValidator(firstControlName: string, secondContro
 		}
 	};
 }
-
-/* export function confirmPassowordValidator(control: FormControl): ValidationErrors | null {
-	const enteredValue: string = control.value || '';
-	const matchingValue: string = control.parent?.get('password')?.value || '';
-	const invalid: boolean = enteredValue !== matchingValue;
-	if (invalid) return { passwordNotConfirmed: 'Password does not match' };
-	return null;
-}
- */
