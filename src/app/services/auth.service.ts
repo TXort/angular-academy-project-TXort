@@ -1,6 +1,6 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { AuthData } from '../interfaces/auth-data.interface';
 import { ILoginFormData } from '../pages/login-container/login-form/login-form.component';
@@ -15,6 +15,9 @@ export class AuthService {
 
 	constructor(private http: HttpClient, private storage: StorageService) {}
 
+	private _isLoggedIn$: BehaviorSubject<boolean> = new BehaviorSubject(Boolean(this.getAuthData()));
+	public isLoggedIn$: Observable<boolean> = this._isLoggedIn$.asObservable();
+
 	public logIn(loginData: ILoginFormData): Observable<any> {
 		return this.http
 			.post<HttpResponse<any>>('https://tv-shows.infinum.academy/users/sign_in', loginData, {
@@ -27,7 +30,10 @@ export class AuthService {
 					const token: string | null = response.headers.get('access-token');
 					const client: string | null = response.headers.get('client');
 
-					if (uid && token && client) this.saveAuthData({ token, client, uid });
+					if (uid && token && client) {
+						this.saveAuthData({ token, client, uid });
+						this._isLoggedIn$.next(true);
+					}
 				})
 			);
 	}
@@ -48,10 +54,10 @@ export class AuthService {
 		this.storage.add(this.authDataKey, authData);
 	}
 
-	/* 	public logOut(): void {
-    this.storage.remove(this.authDataKey);
-    this._isLoggedIn$.next(false);
-  } */
+	public logOut(): void {
+		this.storage.remove(this.authDataKey);
+		this._isLoggedIn$.next(false);
+	}
 
 	public getAuthData(): AuthData | null {
 		return this.storage.get(this.authDataKey);

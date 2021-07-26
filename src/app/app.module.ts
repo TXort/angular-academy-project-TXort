@@ -30,6 +30,7 @@ import { LoginFormComponent } from './pages/login-container/login-form/login-for
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RegistrationContainerComponent } from './pages/registration-container/registration-container.component';
 import { RegistrationFormComponent } from './pages/registration-container/registration-form/registration-form.component';
+import { AuthErrorInterceptor } from './interceptors/auth-error.interceptor';
 
 @NgModule({
 	declarations: [
@@ -69,6 +70,11 @@ import { RegistrationFormComponent } from './pages/registration-container/regist
 		{
 			provide: HTTP_INTERCEPTORS,
 			useClass: AuthInterceptor,
+			multi: true,
+		},
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: AuthErrorInterceptor,
 			multi: true,
 		},
 	],

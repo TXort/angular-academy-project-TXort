@@ -56,16 +56,19 @@ export class ShowService {
 				return shows.map((rawShowData) => new Show(rawShowData));
 			})
 		); */
-		return this.http.get<{ shows: Array<IRawShow> }>('https://tv-shows.infinum.academy/shows').pipe(
+		return this.http.get<{ body: { shows: Array<IRawShow> } }>('https://tv-shows.infinum.academy/shows').pipe(
 			map((response) => {
-				console.log(response);
-				return [].map((rawShowData) => new Show(rawShowData));
+				return response.body.shows.map((rawShowData: IRawShow) => new Show(rawShowData));
 			})
 		);
 	}
 
 	public getTopRated(): Observable<Array<Show>> {
-		return this.getShows().pipe(map((shows) => shows.filter((show: Show) => show.averageRating > 4)));
+		return this.http.get<{ body: { shows: Array<IRawShow> } }>('https://tv-shows.infinum.academy/shows/top_rated').pipe(
+			map((response) => {
+				return response.body.shows.map((rawShowData: IRawShow) => new Show(rawShowData));
+			})
+		);
 	}
 
 	public getShow(id: string): Observable<Show | null> {

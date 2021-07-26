@@ -25,7 +25,6 @@ export class AddShowContainerComponent {
 				})
 			)
 			.subscribe((showFormData: ShowFormData) => {
-				// sukses
 				this.router.navigate(['']);
 			});
 	}

@@ -9,6 +9,7 @@ import { FormLayoutComponent } from './components/form-layout/form-layout.compon
 import { AddShowContainerComponent } from './pages/add-show-container/add-show-container.component';
 import { LoginContainerComponent } from './pages/login-container/login-container.component';
 import { RegistrationContainerComponent } from './pages/registration-container/registration-container.component';
+import { AppGuard } from './app.guard';
 
 const routes: Routes = [
 	{
@@ -19,6 +20,7 @@ const routes: Routes = [
 			{ path: 'top-rated', component: TopRatedContainerComponent },
 			{ path: 'show/:id', component: ShowDetailsContainerComponent },
 		],
+		//canActivate: [AppGuard],
 	},
 	{
 		path: '',
