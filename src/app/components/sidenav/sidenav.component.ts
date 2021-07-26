@@ -24,5 +24,13 @@ export class SidenavComponent {
 			url: '/add-show',
 			title: 'Add show',
 		},
+		{
+			url: '/login',
+			title: 'Login',
+		},
+		{
+			url: '/register',
+			title: 'Register',
+		},
 	];
 }

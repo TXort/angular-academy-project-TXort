@@ -8,6 +8,7 @@ import { TopRatedContainerComponent } from './pages/top-rated-container/top-rate
 import { FormLayoutComponent } from './components/form-layout/form-layout.component';
 import { AddShowContainerComponent } from './pages/add-show-container/add-show-container.component';
 import { LoginContainerComponent } from './pages/login-container/login-container.component';
+import { RegistrationContainerComponent } from './pages/registration-container/registration-container.component';
 
 const routes: Routes = [
 	{
@@ -25,6 +26,7 @@ const routes: Routes = [
 		children: [
 			{ path: 'add-show', component: AddShowContainerComponent },
 			{ path: 'login', component: LoginContainerComponent },
+			{ path: 'register', component: RegistrationContainerComponent },
 		],
 	},
 	{

@@ -28,6 +28,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginContainerComponent } from './pages/login-container/login-container.component';
 import { LoginFormComponent } from './pages/login-container/login-form/login-form.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { RegistrationContainerComponent } from './pages/registration-container/registration-container.component';
+import { RegistrationFormComponent } from './pages/registration-container/registration-form/registration-form.component';
 
 @NgModule({
 	declarations: [
@@ -46,6 +48,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 		FormLayoutComponent,
 		LoginContainerComponent,
 		LoginFormComponent,
+		RegistrationContainerComponent,
+		RegistrationFormComponent,
 	],
 	imports: [
 		BrowserModule,
