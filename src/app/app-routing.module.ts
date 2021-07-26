@@ -16,11 +16,11 @@ const routes: Routes = [
 		path: '',
 		component: MainLayoutComponent,
 		children: [
-			{ path: '', component: AllShowsContainerComponent },
-			{ path: 'top-rated', component: TopRatedContainerComponent },
-			{ path: 'show/:id', component: ShowDetailsContainerComponent },
+			{ path: '', component: AllShowsContainerComponent, canActivate: [AppGuard] },
+			{ path: 'top-rated', component: TopRatedContainerComponent, canActivate: [AppGuard] },
+			{ path: 'show/:id', component: ShowDetailsContainerComponent, canActivate: [AppGuard] },
 		],
-		//canActivate: [AppGuard],
+		canActivate: [AppGuard],
 	},
 	{
 		path: '',

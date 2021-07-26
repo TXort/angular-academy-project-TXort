@@ -1,8 +1,9 @@
-import { HttpResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { CompileShallowModuleMetadata } from '@angular/compiler';
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
-import { finalize } from 'rxjs/operators';
+import { Observable, of, Subject } from 'rxjs';
+import { catchError, finalize, map } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
 import { ILoginFormData } from './login-form/login-form.component';
 
@@ -26,7 +27,7 @@ export class LoginContainerComponent {
 					this.isLoading$.next(false);
 				})
 			)
-			.subscribe(() => {
+			.subscribe((e) => {
 				this.router.navigate(['']);
 			});
 	}
