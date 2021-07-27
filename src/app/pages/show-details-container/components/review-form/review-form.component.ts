@@ -20,6 +20,6 @@ export class ReviewFormComponent {
 
 	public onSubmit(): void {
 		this.submit.emit(this.reviewFormGroup.value);
-		//		this.reviewFormGroup.reset();
+		this.reviewFormGroup.reset();
 	}
 }

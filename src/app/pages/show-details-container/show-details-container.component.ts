@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { finalize, switchMap } from 'rxjs/operators';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { BehaviorSubject, combineLatest, Observable, of } from 'rxjs';
+import { finalize, map, subscribeOn, switchMap } from 'rxjs/operators';
 import { Review } from 'src/app/services/review.model';
 import { Show } from 'src/app/services/show.model';
 import { ShowService } from 'src/app/services/show.service';
@@ -15,44 +15,27 @@ import { IRawReview } from 'src/app/interfaces/rawReview.interface';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShowDetailsContainerComponent {
-	constructor(private route: ActivatedRoute, private showService: ShowService, private reviewService: ReviewService) {}
+	id: string;
+	reviews$: Observable<Array<Review> | null>;
+	refreshReviews$ = new BehaviorSubject<boolean>(true);
+	show$: Observable<Show | null>;
 
-	singleEvent$: BehaviorSubject<string | null>;
+	constructor(private route: ActivatedRoute, private showService: ShowService, private reviewService: ReviewService) {
+		this.route.paramMap.subscribe((params) => {
+			const tempId = params.get('id');
+			if (tempId) this.id = tempId;
+		});
+	}
 
-	public show$: Observable<Show | null> = this.route.paramMap.pipe(
-		switchMap((paramMap) => {
-			const id: string | null = paramMap.get('id');
-
-			if (!this.singleEvent$) {
-				this.singleEvent$ = new BehaviorSubject(id);
-			} else {
-				this.singleEvent$.next(id);
-			}
-
-			if (id) return this.showService.getShow(id);
-			return of(null);
-		})
-	);
-
-	public reviews$: Observable<Array<Review> | null> = this.route.paramMap.pipe(
-		switchMap((paramMap) => {
-			const id: string | null = paramMap.get('id');
-
-			if (id) return this.reviewService.getReviewsOnShow(id);
-			return of(null);
-		})
-	);
+	ngOnInit() {
+		this.reviews$ = this.refreshReviews$.pipe(switchMap((_) => this.reviewService.getReviewsOnShow(this.id)));
+		this.show$ = this.showService.getShow(this.id);
+	}
 
 	public onSubmit(reviewData: IRawReview): void {
-		let x = this.singleEvent$.value;
-		console.log(typeof reviewData.rating);
-		reviewData.show_id = x || '';
-		this.reviewService.submitReview(reviewData).subscribe();
-		/* this.reviewService
-			.submitReview(reviewData)
-			.pipe(finalize(() => {}))
-			.subscribe((showFormData: IRawReview) => {
-				console.log(showFormData);
-			}); */
+		reviewData.show_id = this.id;
+		this.reviewService.submitReview(reviewData);
+		this.reviewService.getReviewsOnShow(this.id).subscribe();
+		this.refreshReviews$.next(true);
 	}
 }
