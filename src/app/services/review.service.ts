@@ -22,10 +22,6 @@ export class ReviewService {
 	}
 
 	public submitReview(reviewData: IRawReview): Observable<any> {
-		return this.http
-			.post<HttpResponse<any>>('https://tv-shows.infinum.academy/reviews', reviewData, {
-				observe: 'response',
-			})
-			.pipe(tap((response: HttpResponse<any>) => {}));
+		return this.http.post<HttpResponse<any>>('https://tv-shows.infinum.academy/reviews', reviewData);
 	}
 }

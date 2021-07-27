@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { finalize, switchMap } from 'rxjs/operators';
 import { Review } from 'src/app/services/review.model';
 import { Show } from 'src/app/services/show.model';
 import { ShowService } from 'src/app/services/show.service';
@@ -17,9 +17,17 @@ import { IRawReview } from 'src/app/interfaces/rawReview.interface';
 export class ShowDetailsContainerComponent {
 	constructor(private route: ActivatedRoute, private showService: ShowService, private reviewService: ReviewService) {}
 
+	singleEvent$: BehaviorSubject<string | null>;
+
 	public show$: Observable<Show | null> = this.route.paramMap.pipe(
 		switchMap((paramMap) => {
 			const id: string | null = paramMap.get('id');
+
+			if (!this.singleEvent$) {
+				this.singleEvent$ = new BehaviorSubject(id);
+			} else {
+				this.singleEvent$.next(id);
+			}
 
 			if (id) return this.showService.getShow(id);
 			return of(null);
@@ -36,7 +44,15 @@ export class ShowDetailsContainerComponent {
 	);
 
 	public onSubmit(reviewData: IRawReview): void {
-		console.log(reviewData);
-		this.reviewService.submitReview(reviewData);
+		let x = this.singleEvent$.value;
+		console.log(typeof reviewData.rating);
+		reviewData.show_id = x || '';
+		this.reviewService.submitReview(reviewData).subscribe();
+		/* this.reviewService
+			.submitReview(reviewData)
+			.pipe(finalize(() => {}))
+			.subscribe((showFormData: IRawReview) => {
+				console.log(showFormData);
+			}); */
 	}
 }

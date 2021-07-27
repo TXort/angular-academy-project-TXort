@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -52,7 +53,7 @@ import { ReviewFormComponent } from './pages/show-details-container/components/r
 		LoginFormComponent,
 		RegistrationContainerComponent,
 		RegistrationFormComponent,
-  ReviewFormComponent,
+		ReviewFormComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -67,6 +68,7 @@ import { ReviewFormComponent } from './pages/show-details-container/components/r
 		MatButtonModule,
 		HttpClientModule,
 		MatProgressBarModule,
+		MatSnackBarModule,
 	],
 	providers: [
 		{
