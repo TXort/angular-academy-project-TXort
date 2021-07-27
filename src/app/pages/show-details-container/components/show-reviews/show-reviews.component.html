@@ -9,6 +9,7 @@
 					</p>
 				</div>
 			</div>
+			<button mat-raised-button (delete)="onDelete(review)" [disabled]="canDelete(review)">Delete review</button>
 		</mat-card>
 	</mat-card>
 </div>
