@@ -26,6 +26,6 @@ export class ReviewService {
 	}
 
 	public deleteReview(reviewData: IRawReview): Observable<any> {
-		return this.http.post<HttpResponse<any>>(`https://tv-shows.infinum.academy/reviews/${reviewData.id}`, reviewData);
+		return this.http.delete<HttpResponse<any>>(`https://tv-shows.infinum.academy/reviews/${reviewData.id}`);
 	}
 }
