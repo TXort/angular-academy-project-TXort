@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { IRawReview } from '../interfaces/rawReview.interface';
 import { Review } from './review.model';
-import { delay, filter, map, subscribeOn, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 
 @Injectable({
@@ -21,7 +21,11 @@ export class ReviewService {
 			);
 	}
 
-	public submitReview(reviewData: IRawReview): void {
-		this.http.post<HttpResponse<any>>('https://tv-shows.infinum.academy/reviews', reviewData).subscribe();
+	public submitReview(reviewData: IRawReview): Observable<any> {
+		return this.http.post<HttpResponse<any>>('https://tv-shows.infinum.academy/reviews', reviewData);
+	}
+
+	public deleteReview(reviewData: IRawReview): Observable<any> {
+		return this.http.post<HttpResponse<any>>(`https://tv-shows.infinum.academy/reviews/${reviewData.id}`, reviewData);
 	}
 }

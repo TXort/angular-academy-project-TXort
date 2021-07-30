@@ -33,6 +33,8 @@ import { RegistrationContainerComponent } from './pages/registration-container/r
 import { RegistrationFormComponent } from './pages/registration-container/registration-form/registration-form.component';
 import { AuthErrorInterceptor } from './interceptors/auth-error.interceptor';
 import { ReviewFormComponent } from './pages/show-details-container/components/review-form/review-form.component';
+import { LogoComponent } from './components/logo/logo.component';
+import { MyProfileContainerComponent } from './pages/my-profile-container/my-profile-container.component';
 
 @NgModule({
 	declarations: [
@@ -54,6 +56,8 @@ import { ReviewFormComponent } from './pages/show-details-container/components/r
 		RegistrationContainerComponent,
 		RegistrationFormComponent,
 		ReviewFormComponent,
+  LogoComponent,
+  MyProfileContainerComponent,
 	],
 	imports: [
 		BrowserModule,

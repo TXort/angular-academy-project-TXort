@@ -2,6 +2,7 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Review } from 'src/app/services/review.model';
 import { IUser } from 'src/app/interfaces/user.interface';
+import { ReviewService } from 'src/app/services/review.service';
 
 @Component({
 	selector: 'app-show-reviews',
@@ -12,12 +13,13 @@ import { IUser } from 'src/app/interfaces/user.interface';
 export class ShowReviewsComponent {
 	@Input() reviews: Array<Review>;
 
-	constructor(private authService: AuthService) {}
+	constructor(private authService: AuthService, private reviewService: ReviewService) {}
 
-	public canDelete(review: Review): string {
-		if (this.authService.getAuthData()?.uid === review.user.email) return 'enabled';
-		return 'disabled';
+	public canDelete(review: Review): boolean {
+		return this.authService.getAuthData()?.uid === review.user.email;
 	}
 
-	public onDelete(review: Review) {}
+	public onDelete(review: Review): void {
+		this.reviewService.deleteReview(review).subscribe((err) => console.log(err));
+	}
 }

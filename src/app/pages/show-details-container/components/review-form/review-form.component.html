@@ -1,16 +1,16 @@
 <mat-card>
 	<form [formGroup]="reviewFormGroup">
-		<h1>Post a review</h1>
 		<mat-form-field appearance="fill">
 			<mat-label>Comment</mat-label>
 			<input matInput type="comment" formControlName="comment" />
 			<mat-error *ngIf="reviewFormGroup.get('comment')?.getError('required')">Comment can't be empty</mat-error>
 		</mat-form-field>
-
-		<button *ngFor="let r of ratingArr; index as i" (click)="onStarClick(i)">
+		<br />
+		<button *ngFor="let r of ratingArr; index as i" (click)="onStarClick(i); $event.preventDefault()">
 			<mat-icon>{{ getStar(i) }}</mat-icon>
 		</button>
-
-		<button mat-raised-button (click)="onSubmit()" [disabled]="reviewFormGroup.invalid">Submit</button>
+		<h4>Rating:</h4>
+		<br />
+		<button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="reviewFormGroup.invalid">Submit</button>
 	</form>
 </mat-card>

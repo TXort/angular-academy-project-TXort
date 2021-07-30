@@ -9,7 +9,9 @@
 					</p>
 				</div>
 			</div>
-			<button mat-raised-button (delete)="onDelete(review)" [disabled]="canDelete(review)">Delete review</button>
+			<ng-container *ngIf="canDelete(review)">
+				<button mat-raised-button (click)="onDelete(review)">Delete review</button>
+			</ng-container>
 		</mat-card>
 	</mat-card>
 </div>
