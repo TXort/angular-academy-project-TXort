@@ -31,7 +31,7 @@ export class LoginContainerComponent {
 			.subscribe(
 				(res) => this.router.navigate(['']),
 				(err) => {
-					this.snackBar.open('Wrong password!', 'Dismiss', {
+					this.snackBar.open('Invalid login credentials!', 'Dismiss', {
 						duration: 3000,
 					});
 				}
