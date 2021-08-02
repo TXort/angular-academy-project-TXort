@@ -5,22 +5,26 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { AllShowsContainerComponent } from './pages/all-shows-container/all-shows-container.component';
 import { ShowDetailsContainerComponent } from './pages/show-details-container/show-details-container.component';
 import { TopRatedContainerComponent } from './pages/top-rated-container/top-rated-container.component';
+import { FormLayoutComponent } from './components/form-layout/form-layout.component';
 
 const routes: Routes = [
-  { path: '', component: MainLayoutComponent, children: [
-    { path: '', component: AllShowsContainerComponent },
-    { path: 'top-rated', component: TopRatedContainerComponent},
-    { path: 'show/:id', component: ShowDetailsContainerComponent},
-  ] },
-  {
-    path: '**',
-    redirectTo: '',
-  }
-
+	{
+		path: '',
+		component: MainLayoutComponent,
+		children: [
+			{ path: '', component: AllShowsContainerComponent },
+			{ path: 'top-rated', component: TopRatedContainerComponent },
+			{ path: 'show/:id', component: ShowDetailsContainerComponent },
+		],
+	},
+	{
+		path: '**',
+		redirectTo: '',
+	},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+	imports: [RouterModule.forRoot(routes)],
+	exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
