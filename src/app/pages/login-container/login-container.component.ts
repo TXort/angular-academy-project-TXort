@@ -29,7 +29,6 @@ export class LoginContainerComponent {
 				})
 			)
 			.subscribe(
-				(res) => console.log('response', res),
 				(err) => {
 					this.snackBar.open('Wrong password!', 'Dismiss', {
 						duration: 3000,

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { IRawReview } from '../interfaces/rawReview.interface';
 import { Review } from './review.model';
-import { delay, filter, map, subscribeOn, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 
 @Injectable({

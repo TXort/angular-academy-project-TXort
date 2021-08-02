@@ -3,10 +3,6 @@ import { Observable } from 'rxjs';
 import { IRawShow } from '../interfaces/rawShow.interface';
 import { Show } from './show.model';
 import { map } from 'rxjs/operators';
-<<<<<<< HEAD
-import { ShowFormData } from '../pages/add-show-container/components/show-form.component';
-=======
->>>>>>> fifth-homework
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
