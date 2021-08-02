@@ -3,7 +3,10 @@ import { Observable } from 'rxjs';
 import { IRawShow } from '../interfaces/rawShow.interface';
 import { Show } from './show.model';
 import { map } from 'rxjs/operators';
+<<<<<<< HEAD
 import { ShowFormData } from '../pages/add-show-container/components/show-form.component';
+=======
+>>>>>>> fifth-homework
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -35,9 +38,5 @@ export class ShowService {
 				return new Show(show);
 			})
 		);
-	}
-
-	public onShowAdd(showData: ShowFormData): Observable<ShowFormData> {
-		return this.http.post<ShowFormData>('https://tv-shows.infinum.academy/shows', showData);
 	}
 }

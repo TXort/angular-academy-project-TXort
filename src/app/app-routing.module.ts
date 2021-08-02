@@ -23,15 +23,6 @@ const routes: Routes = [
 		canActivate: [AppGuard],
 	},
 	{
-		path: '',
-		component: FormLayoutComponent,
-		children: [
-			{ path: 'add-show', component: AddShowContainerComponent },
-			{ path: 'login', component: LoginContainerComponent },
-			{ path: 'register', component: RegistrationContainerComponent },
-		],
-	},
-	{
 		path: '**',
 		redirectTo: '',
 	},
