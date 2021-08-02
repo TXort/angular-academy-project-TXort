@@ -29,7 +29,6 @@ export class AllShowsContainerComponent {
 				topRated: topRated,
 			};
 		})
-		//	tap(console.log)
 	);
 
 	constructor(private showService: ShowService) {}

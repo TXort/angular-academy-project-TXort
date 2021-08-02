@@ -1,7 +1,7 @@
 <mat-card>
-	<form [formGroup]="registrationFormGroup" (ngSubmit)="onRegister()">
+	<form [formGroup]="registrationFormGroup">
 		<h1>Register</h1>
-		<mat-form-field appearance="fill">
+		<mat-form-field appearance="outline">
 			<mat-label>Email</mat-label>
 			<input matInput type="email" formControlName="email" />
 			<mat-error *ngIf="registrationFormGroup.get('email')?.getError('required')">Email is required</mat-error>
@@ -9,7 +9,7 @@
 			<mat-icon matPrefix>person</mat-icon>
 		</mat-form-field>
 
-		<mat-form-field appearance="fill">
+		<mat-form-field appearance="outline">
 			<mat-label>Password</mat-label>
 			<input matInput type="password" formControlName="password" />
 			<mat-error *ngIf="registrationFormGroup.get('password')?.getError('required')">Password is required</mat-error>
@@ -19,7 +19,7 @@
 			<mat-icon matPrefix>lock</mat-icon>
 		</mat-form-field>
 
-		<mat-form-field appearance="fill">
+		<mat-form-field appearance="outline">
 			<mat-label>Password confirmation</mat-label>
 			<input matInput type="password" formControlName="password_confirmation" />
 			<mat-error *ngIf="registrationFormGroup.get('validator')?.getError('passwordNotConfirmed')">

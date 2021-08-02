@@ -6,9 +6,6 @@ import { AllShowsContainerComponent } from './pages/all-shows-container/all-show
 import { ShowDetailsContainerComponent } from './pages/show-details-container/show-details-container.component';
 import { TopRatedContainerComponent } from './pages/top-rated-container/top-rated-container.component';
 import { FormLayoutComponent } from './components/form-layout/form-layout.component';
-import { AddShowContainerComponent } from './pages/add-show-container/add-show-container.component';
-import { LoginContainerComponent } from './pages/login-container/login-container.component';
-import { RegistrationContainerComponent } from './pages/registration-container/registration-container.component';
 
 const routes: Routes = [
 	{
@@ -18,15 +15,6 @@ const routes: Routes = [
 			{ path: '', component: AllShowsContainerComponent },
 			{ path: 'top-rated', component: TopRatedContainerComponent },
 			{ path: 'show/:id', component: ShowDetailsContainerComponent },
-		],
-	},
-	{
-		path: '',
-		component: FormLayoutComponent,
-		children: [
-			{ path: 'add-show', component: AddShowContainerComponent },
-			{ path: 'login', component: LoginContainerComponent },
-			{ path: 'register', component: RegistrationContainerComponent },
 		],
 	},
 	{

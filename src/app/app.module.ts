@@ -20,8 +20,6 @@ import { TopRatedContainerComponent } from './pages/top-rated-container/top-rate
 import { ShowDetailsContainerComponent } from './pages/show-details-container/show-details-container.component';
 import { ShowDetailsComponent } from './pages/show-details-container/components/show-details/show-details.component';
 import { ShowReviewsComponent } from './pages/show-details-container/components/show-reviews/show-reviews.component';
-import { AddShowContainerComponent } from './pages/add-show-container/add-show-container.component';
-import { ShowFormComponent } from './pages/add-show-container/components/show-form.component';
 import { FormLayoutComponent } from './components/form-layout/form-layout.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -43,8 +41,6 @@ import { RegistrationFormComponent } from './pages/registration-container/regist
 		ShowDetailsContainerComponent,
 		ShowDetailsComponent,
 		ShowReviewsComponent,
-		AddShowContainerComponent,
-		ShowFormComponent,
 		FormLayoutComponent,
 		LoginContainerComponent,
 		LoginFormComponent,

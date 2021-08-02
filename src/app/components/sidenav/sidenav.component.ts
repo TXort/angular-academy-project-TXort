@@ -7,7 +7,7 @@ import { ILink } from 'src/app/interfaces/link.interface';
 	styleUrls: ['./sidenav.component.css'],
 })
 export class SidenavComponent {
-	links: Array<ILink> = [
+	public links: Array<ILink> = [
 		{
 			url: '',
 			title: 'All shows',
@@ -19,18 +19,6 @@ export class SidenavComponent {
 		{
 			url: '/my-profile',
 			title: 'My profile',
-		},
-		{
-			url: '/add-show',
-			title: 'Add show',
-		},
-		{
-			url: '/login',
-			title: 'Login',
-		},
-		{
-			url: '/register',
-			title: 'Register',
 		},
 	];
 }
