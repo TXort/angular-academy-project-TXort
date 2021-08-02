@@ -10,20 +10,19 @@ export class AuthInterceptor implements HttpInterceptor {
 
 	intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 		const authData: AuthData | null = this.authService.getAuthData();
+
 		let finalRequest: HttpRequest<unknown> = request;
+
 		if (authData) {
 			finalRequest = request.clone({
 				headers: new HttpHeaders({
 					client: authData.client,
-					token: authData.token,
+					['access-token']: authData.token,
 					uid: authData.uid,
 				}),
 			});
 		}
 
-		//		console.log('old', request.headers.get('token'));
-		//		console.log('new', finalRequest.headers.get('token'));
-
-		return next.handle(request);
+		return next.handle(finalRequest);
 	}
 }

@@ -1,4 +1,4 @@
-import { FormControl, FormGroup, ValidationErrors } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 
 export function confirmPassowordValidator(firstControlName: string, secondControlName: string) {
 	return (formGroup: FormGroup) => {

@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -28,6 +29,8 @@ import { LoginFormComponent } from './pages/login-container/login-form/login-for
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RegistrationContainerComponent } from './pages/registration-container/registration-container.component';
 import { RegistrationFormComponent } from './pages/registration-container/registration-form/registration-form.component';
+import { AuthErrorInterceptor } from './interceptors/auth-error.interceptor';
+import { ReviewFormComponent } from './pages/show-details-container/components/review-form/review-form.component';
 
 @NgModule({
 	declarations: [
@@ -46,6 +49,7 @@ import { RegistrationFormComponent } from './pages/registration-container/regist
 		LoginFormComponent,
 		RegistrationContainerComponent,
 		RegistrationFormComponent,
+		ReviewFormComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -60,11 +64,17 @@ import { RegistrationFormComponent } from './pages/registration-container/regist
 		MatButtonModule,
 		HttpClientModule,
 		MatProgressBarModule,
+		MatSnackBarModule,
 	],
 	providers: [
 		{
 			provide: HTTP_INTERCEPTORS,
 			useClass: AuthInterceptor,
+			multi: true,
+		},
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: AuthErrorInterceptor,
 			multi: true,
 		},
 	],

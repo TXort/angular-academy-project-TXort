@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ILink } from 'src/app/interfaces/link.interface';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
 	selector: 'app-sidenav',
@@ -7,6 +9,8 @@ import { ILink } from 'src/app/interfaces/link.interface';
 	styleUrls: ['./sidenav.component.css'],
 })
 export class SidenavComponent {
+	constructor(private authService: AuthService, private router: Router) {}
+
 	public links: Array<ILink> = [
 		{
 			url: '',
@@ -21,4 +25,9 @@ export class SidenavComponent {
 			title: 'My profile',
 		},
 	];
+
+	public logOut(): void {
+		this.authService.logOut();
+		this.router.navigate(['/login']);
+	}
 }

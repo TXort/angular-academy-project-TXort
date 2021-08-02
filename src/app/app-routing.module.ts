@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { AllShowsContainerComponent } from './pages/all-shows-container/all-shows-container.component';
 import { ShowDetailsContainerComponent } from './pages/show-details-container/show-details-container.component';
 import { TopRatedContainerComponent } from './pages/top-rated-container/top-rated-container.component';
-import { FormLayoutComponent } from './components/form-layout/form-layout.component';
+import { AppGuard } from './guards/app.guard';
 
 const routes: Routes = [
 	{
@@ -16,6 +15,7 @@ const routes: Routes = [
 			{ path: 'top-rated', component: TopRatedContainerComponent },
 			{ path: 'show/:id', component: ShowDetailsContainerComponent },
 		],
+		canActivate: [AppGuard],
 	},
 	{
 		path: '**',

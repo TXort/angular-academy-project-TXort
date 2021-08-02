@@ -1,8 +1,10 @@
-import { HttpResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { CompileShallowModuleMetadata } from '@angular/compiler';
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
-import { finalize } from 'rxjs/operators';
+import { Observable, of, Subject } from 'rxjs';
+import { catchError, finalize, map } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
 import { ILoginFormData } from './login-form/login-form.component';
 
@@ -15,7 +17,7 @@ import { ILoginFormData } from './login-form/login-form.component';
 export class LoginContainerComponent {
 	public isLoading$: Subject<boolean> = new Subject();
 
-	constructor(private router: Router, private authService: AuthService) {}
+	constructor(private router: Router, private authService: AuthService, private snackBar: MatSnackBar) {}
 
 	public onLogin(loginData: ILoginFormData): void {
 		this.isLoading$.next(true);
@@ -26,8 +28,13 @@ export class LoginContainerComponent {
 					this.isLoading$.next(false);
 				})
 			)
-			.subscribe(() => {
-				this.router.navigate(['']);
-			});
+			.subscribe(
+				(err) => {
+					this.snackBar.open('Wrong password!', 'Dismiss', {
+						duration: 3000,
+					});
+				},
+				() => this.router.navigate([''])
+			);
 	}
 }
