@@ -2,4 +2,16 @@
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 	grid-gap: 32px;
+	margin-right: 32px;
+	margin-top: 32px;
+	margin-bottom: 32px;
+}
+
+
+@media (max-width: 768px) {
+	:host {
+		margin-top: 0px;
+		margin-right: 0px;
+		margin-bottom: 0px;
+	}
 }
