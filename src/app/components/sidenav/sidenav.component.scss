@@ -9,7 +9,7 @@
 	flex-direction: column;
 
 	.list-item {
-		margin-bottom: 24px;
+		margin-bottom: 30px;
 	}
 }
 
@@ -24,3 +24,11 @@
 		background-color: colors.$purple;
 	}
 }
+
+button {
+	position: absolute;
+	bottom: 5%;
+}
+
+
+
