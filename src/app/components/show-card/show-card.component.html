@@ -1,12 +1,9 @@
-<mat-card>
+<mat-card class="show-card">
 	<img class="image" [src]="imageUrl" />
 	<div class="info">
-		<h3>{{ title }}</h3>
-		<p>
-			Description: <span>{{ description }}</span>
-		</p>
+		<h3 class = "mat-caption">{{ title }}</h3>
 		<p class="mat-caption">
-			Average rating: <span>{{ averageRating }}</span>
+			<mat-icon>star</mat-icon>   <span>{{ averageRating }}/5</span>
 		</p>
 	</div>
 </mat-card>
