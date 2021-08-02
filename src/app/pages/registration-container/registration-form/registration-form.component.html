@@ -1,7 +1,8 @@
-<mat-card>
+<div class="background desktop">
+<mat-card class="card">
+	<app-logo class="logo"></app-logo>
 	<form [formGroup]="registrationFormGroup">
-		<h1>Register</h1>
-		<mat-form-field appearance="fill">
+		<mat-form-field appearance="outline">
 			<mat-label>Email</mat-label>
 			<input matInput type="email" formControlName="email" />
 			<mat-error *ngIf="registrationFormGroup.get('email')?.getError('required')">Email is required</mat-error>
@@ -9,9 +10,10 @@
 			<mat-icon matPrefix>person</mat-icon>
 		</mat-form-field>
 
-		<mat-form-field appearance="fill">
+		<mat-form-field appearance="outline">
 			<mat-label>Password</mat-label>
 			<input matInput type="password" formControlName="password" />
+			<mat-hint class="hint">At least 8 characters</mat-hint>
 			<mat-error *ngIf="registrationFormGroup.get('password')?.getError('required')">Password is required</mat-error>
 			<mat-error *ngIf="registrationFormGroup.get('password')?.getError('minlength')"
 				>Password must be at least 8 characters</mat-error
@@ -19,7 +21,7 @@
 			<mat-icon matPrefix>lock</mat-icon>
 		</mat-form-field>
 
-		<mat-form-field appearance="fill">
+		<mat-form-field appearance="outline">
 			<mat-label>Password confirmation</mat-label>
 			<input matInput type="password" formControlName="password_confirmation" />
 			<mat-error *ngIf="registrationFormGroup.get('validator')?.getError('passwordNotConfirmed')">
@@ -28,8 +30,48 @@
 			<mat-icon matPrefix>lock</mat-icon>
 		</mat-form-field>
 
-		<button mat-raised-button (click)="onRegister()" [disabled]="registrationFormGroup.invalid">Register</button>
+		<button mat-raised-button color="primary" (click)="onRegister()" [disabled]="registrationFormGroup.invalid">Sign up</button>
 
 		<p>Already have an account? <a [routerLink]="'/login'">Login</a></p>
 	</form>
 </mat-card>
+</div>
+
+<div class="background mobile">
+	<mat-card class="card">
+		<app-logo class="logo"></app-logo>
+		<form [formGroup]="registrationFormGroup">
+			<mat-form-field appearance="outline">
+				<mat-label>Email</mat-label>
+				<input matInput type="email" formControlName="email" />
+				<mat-error *ngIf="registrationFormGroup.get('email')?.getError('required')">Email is required</mat-error>
+				<mat-error *ngIf="registrationFormGroup.get('email')?.getError('email')">No ducks</mat-error>
+				<mat-icon matPrefix>person</mat-icon>
+			</mat-form-field>
+	
+			<mat-form-field appearance="outline">
+				<mat-label>Password</mat-label>
+				<input matInput type="password" formControlName="password" />
+				<mat-hint class="hint">At least 8 characters</mat-hint>
+				<mat-error *ngIf="registrationFormGroup.get('password')?.getError('required')">Password is required</mat-error>
+				<mat-error *ngIf="registrationFormGroup.get('password')?.getError('minlength')"
+					>Password must be at least 8 characters</mat-error
+				>
+				<mat-icon matPrefix>lock</mat-icon>
+			</mat-form-field>
+	
+			<mat-form-field appearance="outline">
+				<mat-label>Password confirmation</mat-label>
+				<input matInput type="password" formControlName="password_confirmation" />
+				<mat-error *ngIf="registrationFormGroup.get('validator')?.getError('passwordNotConfirmed')">
+					Passowords must match
+				</mat-error>
+				<mat-icon matPrefix>lock</mat-icon>
+			</mat-form-field>
+	
+			<button mat-raised-button color="primary" (click)="onRegister()" [disabled]="registrationFormGroup.invalid">Sign up</button>
+	
+			<p>Already have an account? <a [routerLink]="'/login'">Login</a></p>
+		</form>
+	</mat-card>
+	</div>

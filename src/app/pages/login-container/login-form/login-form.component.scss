@@ -1,9 +1,178 @@
+
+.background {
+	position: relative;
+	width: 100vw;
+	height: 100wh;
+	margin:0 auto;
+	height: 100vh;
+
+
+	display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+	background: #1B004C;
+}
+
+.card {
+	display: flex;
+	justify-content: center;
+	height: 500px;
+	width: 500px;
+	background: #371687;
+	box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.7);
+	border-radius: 24px;
+}
+
 form {
 	display: flex;
 	flex-direction: column;
 	text-align: center;
+	position: relative;
+	justify-content: center;
+	margin-top: 21%;
 }
 
+
+
+mat-form-field {
+	justify-content: center;
+	margin-left: -22%;
+	margin-right: -22%;
+	margin-top: 0%;
+}
+
+
+
+
 button {
-	margin-bottom: 16px;
+	position: relative;
+	background: #FFFFFF;
+	border-radius: 32px;
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-bottom: 12%;
+	margin-top: 7%;
+}
+
+button:hover {
+	box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.7);
+	border-radius: 32px;
+}
+
+button:disabled, button[disabled] {
+	background-color: #8D5CE6;
+}
+
+
+p, a {
+	margin-bottom: 10%;
+	color: white;
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 15px;
+}
+
+a {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+
+.logo {
+	position: absolute;
+	display: inline;
+	justify-content: center;
+	padding-top: 8%;
+}
+
+
+
+.mobile {
+	display: none;
+}
+
+@media (min-width: 768px) {
+	.desktop {
+		display: none;
+	}
+	.mobile {
+		display: flex;
+	}
+}
+
+@media (max-width: 768px) {
+	.background {
+		background: #371687;
+	}
+	.card {
+		box-shadow: 0px 0px 0px;
+		height: 600px;
+		width: 500px;
+	}
+	form {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		position: relative;
+		justify-content: center;
+		margin-top: 0%;
+	}
+	
+	
+	
+	mat-form-field {
+		justify-content: center;
+		margin-left: -10%;
+		margin-right: -10%;
+		margin-top: 0%;
+	}
+	
+	
+	
+	
+	button {
+		position: relative;
+		background: #FFFFFF;
+		border-radius: 32px;
+		margin-bottom: 15%;
+		margin-top: 20%;
+	}
+	
+	button:hover {
+		box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.7);
+		border-radius: 32px;
+	}
+	
+	button:disabled, button[disabled] {
+		background-color: #8D5CE6;
+	}
+	
+	
+	p, a {
+		margin-bottom: 0%;
+		color: white;
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 14px;
+		line-height: 15px;
+	}
+	
+	a {
+		text-decoration: none;
+		font-weight: bold;
+	}
+	
+	
+	.logo {
+		position: absolute;
+		display: inline;
+		justify-content: center;
+		padding-top: 0%;
+	}
+	
 }

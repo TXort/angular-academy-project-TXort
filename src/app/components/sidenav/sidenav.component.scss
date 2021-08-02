@@ -1,0 +1,34 @@
+@use 'utils/colors';
+
+.list {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+
+	display: flex;
+	flex-direction: column;
+
+	.list-item {
+		margin-bottom: 30px;
+	}
+}
+
+.link {
+	padding: 8px 12px;
+
+	color: colors.$white;
+	text-decoration: none;
+	border-radius: 32px;
+
+	&.active {
+		background-color: colors.$purple;
+	}
+}
+
+button {
+	position: absolute;
+	bottom: 5%;
+}
+
+
+

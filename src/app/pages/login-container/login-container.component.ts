@@ -29,13 +29,12 @@ export class LoginContainerComponent {
 				})
 			)
 			.subscribe(
-				(res) => console.log('response', res),
+				(res) => this.router.navigate(['']),
 				(err) => {
-					this.snackBar.open('Wrong password!', 'Dismiss', {
+					this.snackBar.open('Invalid login credentials!', 'Dismiss', {
 						duration: 3000,
 					});
-				},
-				() => this.router.navigate([''])
+				}
 			);
 	}
 }

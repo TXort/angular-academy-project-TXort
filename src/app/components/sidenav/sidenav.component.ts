@@ -6,7 +6,7 @@ import { AuthService } from 'src/app/services/auth.service';
 @Component({
 	selector: 'app-sidenav',
 	templateUrl: './sidenav.component.html',
-	styleUrls: ['./sidenav.component.css'],
+	styleUrls: ['./sidenav.component.scss'],
 })
 export class SidenavComponent {
 	constructor(private authService: AuthService, private router: Router) {}
@@ -23,18 +23,6 @@ export class SidenavComponent {
 		{
 			url: '/my-profile',
 			title: 'My profile',
-		},
-		{
-			url: '/add-show',
-			title: 'Add show',
-		},
-		{
-			url: '/login',
-			title: 'Login',
-		},
-		{
-			url: '/register',
-			title: 'Register',
 		},
 	];
 

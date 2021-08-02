@@ -34,7 +34,7 @@ export class ShowDetailsContainerComponent {
 
 	public onSubmit(reviewData: IRawReview): void {
 		reviewData.show_id = this.id;
-		this.reviewService.submitReview(reviewData);
+		this.reviewService.submitReview(reviewData).subscribe((r) => console.log(r));
 		this.reviewService.getReviewsOnShow(this.id).subscribe();
 		this.refreshReviews$.next(true);
 	}
