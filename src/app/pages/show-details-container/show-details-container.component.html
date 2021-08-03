@@ -1,3 +1,6 @@
+
+
+<div class="background">
 <ng-container *ngIf="show$ | async as show">
 	<app-show-details [show]="show"></app-show-details>
 </ng-container>
@@ -7,3 +10,4 @@
 <ng-container *ngIf="reviews$ | async as reviews">
 	<app-show-reviews [reviews]="reviews"> </app-show-reviews>
 </ng-container>
+</div>
