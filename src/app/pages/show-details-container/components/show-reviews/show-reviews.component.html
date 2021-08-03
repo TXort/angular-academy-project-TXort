@@ -1,16 +1,26 @@
 <div class="show-reviews-container">
-	<mat-card *ngFor="let review of reviews">
-		<mat-card>
-			<div class="review-details">
-				<div>
-					<h3>{{ review.comment }}</h3>
-					<p>
-						Rating: <span>{{ review.rating }}</span>
-					</p>
-				</div>
-			</div>
+	<mat-card class="background" *ngFor="let review of reviews">
+		<mat-card class ="review-card">
+		
+		
+
+					<img class="image" src="{{review.user.image_url}}">
+
+					<div class="data info">
+						<p>{{review.user.email}}</p>
+						<span class="rating">{{ review.rating }}/5 </span>
+						<span class="star-generator" *ngFor="let x of [].constructor(review.rating)">
+							<mat-icon class="stars">star</mat-icon>
+						</span>
+					</div>
+			
+
+					<div class="data comment">{{ review.comment }}</div>
+
+
+	
 			<ng-container *ngIf="canDelete(review)">
-				<button mat-raised-button (click)="onDelete(review)">Delete review</button>
+				<button color="primary" mat-raised-button (click)="onDelete(review)">Delete review</button>
 			</ng-container>
 		</mat-card>
 	</mat-card>

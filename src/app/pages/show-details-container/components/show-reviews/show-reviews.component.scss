@@ -1,0 +1,36 @@
+.background {
+	background: #1B004C;
+	width: 100%;
+}
+
+
+.image {
+	width: 40px;
+	height: 40px;
+	object-fit: cover;
+	border-radius: 40px;
+	margin-top: 17px;
+	margin-right: 20px;
+	margin-left: 30px;
+	margin-bottom: 17px;
+}
+
+
+.review-card {
+	border-radius: 24px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+
+
+	.data {
+		flex: 4px;
+		justify-content: center;
+		overflow: cover;
+	}
+}
+
+
+.comment {
+	margin-right: 300px
+}
