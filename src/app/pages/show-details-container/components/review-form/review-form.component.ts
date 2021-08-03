@@ -13,7 +13,7 @@ export class ReviewFormComponent {
 
 	private rating = 0;
 	private starCount = 5;
-	public ratingArr: boolean[] = [];
+	public ratingArr: Array<boolean>;
 
 	constructor(private fb: FormBuilder) {
 		this.ratingArr = Array(this.starCount).fill(false);

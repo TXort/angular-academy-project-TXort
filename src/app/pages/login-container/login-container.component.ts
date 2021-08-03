@@ -29,7 +29,7 @@ export class LoginContainerComponent {
 				})
 			)
 			.subscribe(
-				(res) => this.router.navigate(['']),
+				() => this.router.navigate(['']),
 				(err) => {
 					this.snackBar.open('Invalid login credentials!', 'Dismiss', {
 						duration: 3000,

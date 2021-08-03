@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { IRawShow } from '../interfaces/rawShow.interface';
 import { Show } from './show.model';
 import { map } from 'rxjs/operators';
-import { ShowFormData } from '../pages/add-show-container/components/show-form.component';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -29,7 +28,6 @@ export class ShowService {
 	}
 
 	public getShow(id: string): Observable<Show | null> {
-		//	return this.getShows().pipe(map((shows) => shows.find((show: Show) => show.id === id) || null));
 		return this.http.get<{ show: IRawShow }>(`https://tv-shows.infinum.academy/shows/${id}`).pipe(
 			map(({ show }: { show: IRawShow }) => {
 				return new Show(show);
@@ -37,7 +35,4 @@ export class ShowService {
 		);
 	}
 
-	public onShowAdd(showData: ShowFormData): Observable<ShowFormData> {
-		return this.http.post<ShowFormData>('https://tv-shows.infinum.academy/shows', showData);
-	}
 }

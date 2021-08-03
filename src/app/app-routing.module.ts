@@ -7,7 +7,7 @@ import { TopRatedContainerComponent } from './pages/top-rated-container/top-rate
 import { FormLayoutComponent } from './components/form-layout/form-layout.component';
 import { LoginContainerComponent } from './pages/login-container/login-container.component';
 import { RegistrationContainerComponent } from './pages/registration-container/registration-container.component';
-import { AppGuard } from './app.guard';
+import { AppGuard } from './guards/app.guard';
 import { MyProfileContainerComponent } from './pages/my-profile-container/my-profile-container.component';
 
 const routes: Routes = [
