@@ -1,0 +1,59 @@
+.form-review {
+	background: #1B004C;
+}
+
+
+.main {
+	background: #1B004C;
+	margin: 20px;
+	border-radius: none;
+	box-shadow: none;
+}
+
+
+.review-text {
+	background: #FFFFFF;
+	color: #8D5CE5;
+	box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.7);
+	border-radius: 24px;
+	width: 100%;
+}
+
+
+.comment-text {
+	color: #8D5CE5;
+	display: flex;
+	justify-content: center;
+}
+
+.text-rating {
+	padding-right: 10px;
+}
+
+
+.rating {
+	margin-top: 3%;
+	display: flex;
+}
+
+
+button.ng-star-inserted {
+	background: #1B004C;
+	box-shadow: none;
+}
+
+.rating-btn {
+	padding: 0;
+	border: none;
+	background: none;
+	padding-bottom: 20px;
+}
+
+.stars {
+	color: #8D5CE6;
+
+}
+
+.post {
+	margin-left: auto
+}
