@@ -23,7 +23,6 @@
 .comment-text {
 	color: #8D5CE5;
 	display: flex;
-	justify-content: center;
 }
 
 .text-rating {
@@ -47,13 +46,18 @@ button.ng-star-inserted {
 	border: none;
 	background: none;
 	padding-bottom: 20px;
+	cursor: pointer;
 }
 
 .stars {
 	color: #8D5CE6;
-
 }
 
 .post {
 	margin-left: auto
+}
+
+
+::ng-deep .mat-form-field-underline {
+  display: none;
 }

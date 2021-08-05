@@ -1,6 +1,6 @@
 <mat-card class="main">
 	<form class="form-review" [formGroup]="reviewFormGroup">
-		<mat-form-field class="review-text" appearance="outline">
+		<mat-form-field class="review-text" appearance="fill">
 			<mat-label class="comment-text">Enter review</mat-label>
 			<input class="comment-text" matInput type="comment" formControlName="comment">
 			<mat-error *ngIf="reviewFormGroup.get('comment')?.getError('required')">Comment can't be empty</mat-error>
