@@ -1,43 +1,47 @@
 .form-review {
-	background: #1B004C;
+	background: #1b004c;
+	margin-left: 3%;
+	margin-right: 3%;
 }
-
 
 .main {
-	background: #1B004C;
-	margin: 20px;
+	background: #1b004c;
 	border-radius: none;
 	box-shadow: none;
+	margin-left: 0px;
+	padding: 0px;
+	padding-bottom: 20px;
 }
 
-
 .review-text {
-	background: #FFFFFF;
-	color: #8D5CE5;
+	background: #ffffff;
+	color: #8d5ce5;
 	box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.7);
 	border-radius: 24px;
 	width: 100%;
 }
 
-
 .comment-text {
-	color: #8D5CE5;
+	color: #8d5ce5;
 	display: flex;
 }
-
-.text-rating {
-	padding-right: 10px;
-}
-
 
 .rating {
 	margin-top: 3%;
 	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	text-align: center;
+	vertical-align: middle;
 }
 
+.text-rating {
+	margin-top: 13px;
+	margin-right: 10px;
+}
 
 button.ng-star-inserted {
-	background: #1B004C;
+	background: #1b004c;
 	box-shadow: none;
 }
 
@@ -45,19 +49,21 @@ button.ng-star-inserted {
 	padding: 0;
 	border: none;
 	background: none;
-	padding-bottom: 20px;
 	cursor: pointer;
 }
 
 .stars {
-	color: #8D5CE6;
+	color: #8d5ce6;
 }
 
 .post {
-	margin-left: auto
+	margin-left: auto;
 }
 
-
 ::ng-deep .mat-form-field-underline {
-  display: none;
+	display: none;
+}
+
+::ng-deep .mat-form-field-flex {
+	border-radius: 24px !important;
 }

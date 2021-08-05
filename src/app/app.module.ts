@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -52,8 +53,8 @@ import { MyProfileContainerComponent } from './pages/my-profile-container/my-pro
 		RegistrationContainerComponent,
 		RegistrationFormComponent,
 		ReviewFormComponent,
-  LogoComponent,
-  MyProfileContainerComponent,
+		LogoComponent,
+		MyProfileContainerComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -69,6 +70,7 @@ import { MyProfileContainerComponent } from './pages/my-profile-container/my-pro
 		HttpClientModule,
 		MatProgressBarModule,
 		MatSnackBarModule,
+		MatMenuModule,
 	],
 	providers: [
 		{

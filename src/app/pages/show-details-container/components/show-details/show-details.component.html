@@ -1,17 +1,15 @@
 <mat-card class="show-details-container">
-		<img [src]="show.imageUrl" />
-		<div class="show-details">
-
-			<div class="info info-right">
-				<h2 class="title">{{ show.title }}</h2>
-				<p class="mat-caption">
-					<mat-icon>star</mat-icon> <span>{{ show.averageRating }}/5</span>
-				</p>
-			</div>
-
-			<div class="info info-left">
-				<p class="mat-caption">{{ show.description }}</p>
-			</div>
-
+	<img [src]="show.imageUrl" />
+	<div class="show-details">
+		<div class="info info-right">
+			<h2 class="title">{{ show.title }}</h2>
+			<p class="mat-caption">
+				<mat-icon>star</mat-icon> <span>{{ show.averageRating }}/5</span>
+			</p>
 		</div>
-	</mat-card>
+
+		<div class="info info-left">
+			<p class="mat-caption">{{ show.description }}</p>
+		</div>
+	</div>
+</mat-card>

@@ -2,18 +2,25 @@
 	<form class="form-review" [formGroup]="reviewFormGroup">
 		<mat-form-field class="review-text" appearance="fill">
 			<mat-label class="comment-text">Enter review</mat-label>
-			<input class="comment-text" matInput type="comment" formControlName="comment">
-			<mat-error *ngIf="reviewFormGroup.get('comment')?.getError('required')">Comment can't be empty</mat-error>
+			<input class="comment-text" matInput type="comment" formControlName="comment" />
+			<mat-error class="error-text" *ngIf="reviewFormGroup.get('comment')?.getError('required')"
+				>Review can't be empty</mat-error
+			>
 		</mat-form-field>
 		<br />
 		<div class="rating">
-			<h4 class="text-rating">Rating:</h4>
-		<button class="rating-btn" *ngFor="let r of ratingArr; index as i" (click)="onStarClick(i); $event.preventDefault()">
-			<mat-icon  class="stars">{{ getStar(i) }}</mat-icon>
-		</button>
+			<h3 class="text-rating">Rating:</h3>
+			<button
+				class="rating-btn"
+				*ngFor="let r of ratingArr; index as i"
+				(click)="onStarClick(i); $event.preventDefault()"
+			>
+				<mat-icon class="stars">{{ getStar(i) }}</mat-icon>
+			</button>
 
-		<button class="post" mat-raised-button color="primary" (click)="onSubmit()" [disabled]="reviewFormGroup.invalid">Post</button>
+			<button class="post" mat-raised-button color="primary" (click)="onSubmit()" [disabled]="reviewFormGroup.invalid">
+				Post
+			</button>
 		</div>
-
 	</form>
 </mat-card>
