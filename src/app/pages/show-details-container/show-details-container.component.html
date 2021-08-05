@@ -8,6 +8,6 @@
 <app-review-form (submit)="onSubmit($event)"></app-review-form>
 
 <ng-container *ngIf="reviews$ | async as reviews">
-	<app-show-reviews [reviews]="reviews"> </app-show-reviews>
+	<app-show-reviews (delete) ="onDelete()" [reviews]="reviews"> </app-show-reviews>
 </ng-container>
 </div>

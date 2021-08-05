@@ -1,8 +1,9 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Review } from 'src/app/services/review.model';
 import { IUser } from 'src/app/interfaces/user.interface';
 import { ReviewService } from 'src/app/services/review.service';
+
 
 @Component({
 	selector: 'app-show-reviews',
@@ -12,6 +13,7 @@ import { ReviewService } from 'src/app/services/review.service';
 })
 export class ShowReviewsComponent {
 	@Input() reviews: Array<Review>;
+	@Output() delete = new EventEmitter();
 
 	constructor(private authService: AuthService, private reviewService: ReviewService) {}
 
@@ -20,6 +22,8 @@ export class ShowReviewsComponent {
 	}
 
 	public onDelete(review: Review): void {
-		this.reviewService.deleteReview(review).subscribe((err) => console.log(err));
+		this.reviewService.deleteReview(review).subscribe((err) => { 
+			this.delete.emit();
+		});
 	}
 }
