@@ -1,11 +1,13 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { AuthData } from '../interfaces/auth-data.interface';
+import { IUser } from '../interfaces/user.interface';
 import { ILoginFormData } from '../pages/login-container/login-form/login-form.component';
 import { IRegistrationFormData } from '../pages/registration-container/registration-container.component';
 import { StorageService } from './storage.service';
+import { User } from './user.model';
 
 @Injectable({
 	providedIn: 'root',
@@ -50,6 +52,27 @@ export class AuthService {
 			);
 	}
 
+	public updateProfilePicture(userData: any): Observable<any> {
+		return this.http
+			.put<HttpResponse<any>>('https://tv-shows.infinum.academy/users', userData, {
+				observe: 'response',
+			})
+			.pipe(
+				tap((response: HttpResponse<any>) => {
+					console.log(response);
+				})
+			);
+	}
+
+	/* public getUserInfo(): Observable<IUser> {
+		return this.http.get<{ user: IUser }>('https://tv-shows.infinum.academy/users/users/me').pipe(
+			map(({ user }: { user: IUser }) => {
+				console.log(new User(user));
+				return new User(user);
+			})
+		);
+	}
+ */
 	private saveAuthData(authData: AuthData): void {
 		this.storage.add(this.authDataKey, authData);
 	}

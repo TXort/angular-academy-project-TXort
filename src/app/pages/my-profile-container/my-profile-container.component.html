@@ -1,8 +1,11 @@
 <div class="wrapper">
-<div class="email txt">EMAIL</div>
-<div class="email data">{{email}}</div>
-<div class="dropzone">
-
-		<div class="drop-txt" Drop your photo here>Drop your photo here</div>
-</div>
+	<div class="email txt">EMAIL</div>
+	<div class="email data">{{ email }}</div>
+	<div class="dropzone">
+		<div class="drop-txt" Drop your photo here>
+			Drop your photo or click
+			<label for="file-upload" class="custom-file-upload"> here </label>
+			<input style="display: none" id="file-upload" type="file" (change)="onFileSelected($event)" />
+		</div>
+	</div>
 </div>
