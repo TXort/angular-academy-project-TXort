@@ -14,23 +14,12 @@ export class MyProfileContainerComponent {
 	public email = this.authService.getAuthData()?.uid;
 
 	public onFileSelected(event: any) {
-		const objectURL = window.URL.createObjectURL(event.target.files[0]);
-		var formdata = new FormData();
-		formdata.append('image_url', event.target.files[0]);
-
-		/* var email = this.authService.getAuthData()?.uid;
-		if (email) formdata.append('email', email); */
-		const no = {
-			image_url: `image=${event.target.files[0]}`,
-			email: this.authService.getAuthData()?.uid,
-		};
-		console.log(formdata);
-		this.authService.updateProfilePicture(no).subscribe((err) => console.log(err));
-		/* console.log(
-			this.authService.getUserInfo().subscribe(
-				(res) => console.log(23),
-				(err) => console.log('error')
-			)
-		); */
+		this.authService.getUserInfo().subscribe((userInfo) => {
+			//			console.log(userInfo);
+			userInfo.image_url = URL.createObjectURL(event.target.files[0]);
+			this.authService.updateProfilePicture(userInfo).subscribe((x) => {
+				//				console.log(x);
+			});
+		});
 	}
 }

@@ -41,6 +41,5 @@ export class ShowDetailsContainerComponent {
 
 	public onDelete(): void {
 		this.refreshReviews$.next(true);
-		console.log("ds");
 	}
 }

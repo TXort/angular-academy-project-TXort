@@ -27,7 +27,6 @@ export class AuthService {
 			})
 			.pipe(
 				tap((response: HttpResponse<any>) => {
-					console.log(response);
 					const uid: string | null = response.headers.get('uid');
 					const token: string | null = response.headers.get('access-token');
 					const client: string | null = response.headers.get('client');
@@ -45,34 +44,29 @@ export class AuthService {
 			.post<HttpResponse<any>>('https://tv-shows.infinum.academy/users', registrationData, {
 				observe: 'response',
 			})
-			.pipe(
-				tap((response: HttpResponse<any>) => {
-					console.log(response);
-				})
-			);
+			.pipe(tap((response: HttpResponse<any>) => {}));
 	}
 
-	public updateProfilePicture(userData: any): Observable<any> {
+	public updateProfilePicture(userData: IUser): Observable<any> {
 		return this.http
 			.put<HttpResponse<any>>('https://tv-shows.infinum.academy/users', userData, {
 				observe: 'response',
 			})
 			.pipe(
 				tap((response: HttpResponse<any>) => {
-					console.log(response);
+					//				console.log(response);
 				})
 			);
 	}
 
-	/* public getUserInfo(): Observable<IUser> {
-		return this.http.get<{ user: IUser }>('https://tv-shows.infinum.academy/users/users/me').pipe(
+	public getUserInfo(): Observable<IUser> {
+		return this.http.get<{ user: IUser }>('https://tv-shows.infinum.academy/users/me').pipe(
 			map(({ user }: { user: IUser }) => {
-				console.log(new User(user));
 				return new User(user);
 			})
 		);
 	}
- */
+
 	private saveAuthData(authData: AuthData): void {
 		this.storage.add(this.authDataKey, authData);
 	}
